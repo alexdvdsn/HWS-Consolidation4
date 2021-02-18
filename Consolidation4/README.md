@@ -17,7 +17,5 @@ In this project I created a hangman like game from scratch.
  -  The user will enter guesses by tapping on an array of letter buttons arranged in a sub view. these button will be hidden once used.
  
  - The Answer / hint information will be loaded at random from a text file (in background) of answers and hints
- 
- - The app will load into a start screen with a button on it, then into the game.
- 
+  
  - a reset button will remove all guesses, reset image and load a different random answer from the text file.
