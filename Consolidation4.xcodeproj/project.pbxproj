@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F43F32B025E1A462009D0DD3 /* alphabet.txt in Resources */ = {isa = PBXBuildFile; fileRef = F43F32AF25E1A462009D0DD3 /* alphabet.txt */; };
+		F43F32B325E1A467009D0DD3 /* hangmanGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = F43F32B225E1A467009D0DD3 /* hangmanGame.txt */; };
 		F47CC6EC25DBEFB300B3532D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47CC6EB25DBEFB300B3532D /* AppDelegate.swift */; };
 		F47CC6EE25DBEFB300B3532D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47CC6ED25DBEFB300B3532D /* SceneDelegate.swift */; };
 		F47CC6F025DBEFB300B3532D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47CC6EF25DBEFB300B3532D /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F43F32AF25E1A462009D0DD3 /* alphabet.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = alphabet.txt; sourceTree = "<group>"; };
+		F43F32B225E1A467009D0DD3 /* hangmanGame.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hangmanGame.txt; sourceTree = "<group>"; };
 		F47CC6E825DBEFB300B3532D /* Consolidation4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Consolidation4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47CC6EB25DBEFB300B3532D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47CC6ED25DBEFB300B3532D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				F47CC6ED25DBEFB300B3532D /* SceneDelegate.swift */,
 				F47CC6EF25DBEFB300B3532D /* ViewController.swift */,
 				F47CC6F125DBEFB300B3532D /* Main.storyboard */,
+				F43F32AF25E1A462009D0DD3 /* alphabet.txt */,
+				F43F32B225E1A467009D0DD3 /* hangmanGame.txt */,
 				F47CC6F425DBEFB600B3532D /* Assets.xcassets */,
 				F47CC6F625DBEFB600B3532D /* LaunchScreen.storyboard */,
 				F47CC6F925DBEFB600B3532D /* Info.plist */,
@@ -126,9 +132,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43F32B325E1A467009D0DD3 /* hangmanGame.txt in Resources */,
 				F47CC6F825DBEFB600B3532D /* LaunchScreen.storyboard in Resources */,
 				F47CC6F525DBEFB600B3532D /* Assets.xcassets in Resources */,
 				F47CC6F325DBEFB300B3532D /* Main.storyboard in Resources */,
+				F43F32B025E1A462009D0DD3 /* alphabet.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

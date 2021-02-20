@@ -75,7 +75,7 @@ class ViewController: UIViewController {
             hangedMan.topAnchor.constraint(equalTo: clueLabel.bottomAnchor, constant: 20),
             hangedMan.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             //hangedMan.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            hangedMan.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 2/3),
+            hangedMan.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 3/4),
             hangedMan.heightAnchor.constraint(equalToConstant: 300),
             
             
@@ -98,11 +98,11 @@ class ViewController: UIViewController {
         ])
         
         //TODO For-loop to populate the buttons view with spaced out letterButtons
-        let width = 80
+        let width = 100
         let height = 80
         
-        for row in 0..<2{
-            for column in 0..<13 {
+        for row in 0..<4{
+            for column in 0..<7 {
                 let letterButton = UIButton(type: .system)
                 letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
                 letterButton.setTitle("W", for: .normal)
@@ -121,7 +121,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //TODO Load level from txt file (perform in background)
-            performSelector(inBackground: #selector(loadLevel), with: nil)
+            //performSelector(inBackground: #selector(loadLevel), with: nil)
+        loadLevel()
     }
     
     //TODO letterTapped Function
@@ -135,8 +136,39 @@ class ViewController: UIViewController {
     }
     
     //TODO loadLevel Function
+    //NOTE: Double check logic, This is different than the words game. but it's being treated the same...
     @objc func loadLevel() {
+        //create tempvariables for the clues
+        var clue = ""
+        //create temp variable for the answer
+        var answer = ""
         
+        //load the answer and clue variables
+        if let gameInfoUrl = Bundle.main.url(forResource: "hangmanGame", withExtension: "txt") {
+            if let gameFileContents = try? String(contentsOf: gameInfoUrl){
+                var lines = gameFileContents.components(separatedBy: "/n")
+                lines.shuffle()
+                
+                for (index, line) in lines.enumerated() {
+                    let parts = line.components(separatedBy: ": ")
+                    clue = parts[0]
+                    answer = parts[1]
+                }
+            }
+        }
+        
+        clueLabel.text = clue
+        currentAnswer.text = answer
+        //load the contents of the alphabet into the buttons
+        if let letterButtonUrl = Bundle.main.url(forResource: "alphabet", withExtension: "txt") {
+            if let letterFileContents = try? String(contentsOf: letterButtonUrl) {
+                let letters = letterFileContents.components(separatedBy: "\n")
+
+                for item in 0..<letters.count{
+                    letterButtons[item].setTitle(letters[item], for: .normal)
+                }
+            }
+        }
     }
 }
 
