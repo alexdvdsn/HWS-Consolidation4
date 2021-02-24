@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         clueLabel.font = UIFont.systemFont(ofSize: 24)
         clueLabel.text = "CLUE LABEL"
         clueLabel.textAlignment = .center
-        clueLabel.layer.backgroundColor = UIColor.red.cgColor
+        //clueLabel.layer.backgroundColor = UIColor.red.cgColor
         clueLabel.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         view.addSubview(clueLabel)
         
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         currentAnswer.font = UIFont.systemFont(ofSize: 24)
         currentAnswer.text = "_____ ___ ____" //Guess the word
         currentAnswer.textAlignment = .center
-        currentAnswer.layer.backgroundColor = UIColor.blue.cgColor
+        //currentAnswer.layer.backgroundColor = UIColor.blue.cgColor
         currentAnswer.setContentHuggingPriority(UILayoutPriority(1), for: .vertical)
         view.addSubview(currentAnswer)
         
@@ -135,8 +135,9 @@ class ViewController: UIViewController {
         
     }
     
-    //TODO loadLevel Function
-    //NOTE: Double check logic, This is different than the words game. but it's being treated the same...
+    // loadLevel Function
+    //NOTE: Figure out how to handle spaces in a string
+    // ALSO: something funky is happening with the underscores.
     @objc func loadLevel() {
         //create tempvariables for the clues
         var clue = ""
@@ -146,19 +147,22 @@ class ViewController: UIViewController {
         //load the answer and clue variables
         if let gameInfoUrl = Bundle.main.url(forResource: "hangmanGame", withExtension: "txt") {
             if let gameFileContents = try? String(contentsOf: gameInfoUrl){
-                var lines = gameFileContents.components(separatedBy: "/n")
+                var lines = gameFileContents.components(separatedBy: "\n")
                 lines.shuffle()
                 
-                for (index, line) in lines.enumerated() {
-                    let parts = line.components(separatedBy: ": ")
+                    let parts = lines[0].components(separatedBy: ": ")
                     clue = parts[0]
                     answer = parts[1]
+                let answerSize = parts[1].count
+                for _ in 0..<answerSize {
+                    
+                    currentAnswer.text?.append("_ ")
+                    }
                 }
             }
-        }
-        
         clueLabel.text = clue
-        currentAnswer.text = answer
+        //currentAnswer.text = answer
+        
         //load the contents of the alphabet into the buttons
         if let letterButtonUrl = Bundle.main.url(forResource: "alphabet", withExtension: "txt") {
             if let letterFileContents = try? String(contentsOf: letterButtonUrl) {
